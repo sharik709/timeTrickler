@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/employer')
+        ->group(function(){
+            Route::resource('project', 'ProjectController');
+        });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
