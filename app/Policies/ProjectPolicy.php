@@ -26,10 +26,27 @@ class ProjectPolicy
      */
     public function show($user, $project)
     {
-        if( $user->id == $project->user_id ) {
-            return true;
-        }
-        return false;
+        return $user->id == $project->user_id;
+    }
+
+    /**
+     * @param $user
+     * @param $project
+     * @return bool
+     */
+    public function store($user, $project)
+    {
+        return $user->id == $project->user_id;
+    }
+
+    /**
+     * @param $user
+     * @param $project
+     * @return bool
+     */
+    public function isAuthor($user, $project)
+    {
+        return $user->id == $project->user_id;
     }
 
 }

@@ -77,4 +77,19 @@ class ProjectModelTest extends TestCase
         $this->assertTrue($project->users->contains($user));
     }
 
+    /** @test */
+    public function check_if_author_can_remove_a_user()
+    {
+        $author = $this->employer();
+        $project = factory(Project::class)->create([
+            'user_id' => $author->id
+        ]);
+        $user = $this->employee();
+        $project->addUser($user);
+
+        $project->removeUser($user);
+
+        $this->assertFalse($project->users->contains($user));
+    }
+
 }

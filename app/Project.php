@@ -60,5 +60,14 @@ class Project extends Model
         return $this->users()->attach($user);
     }
 
+    /**
+     * @param User $user
+     * @return int
+     */
+    public function removeUser(User $user)
+    {
+        return $this->users()->detach($user);
+    }
+
 
 }

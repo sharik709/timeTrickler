@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProjectUser\ProjectUserDestroyRequest;
+use App\Http\Requests\ProjectUser\ProjectUserStoreRequest;
 use App\Project;
 use App\User;
 use Illuminate\Http\Request;
@@ -34,9 +36,11 @@ class ProjectUserController extends Controller
      * @param Project $project
      * @param Request $request
      * @return void
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function store(Project $project, Request $request)
+    public function store(Project $project, ProjectUserStoreRequest $request)
     {
+        $this->authorize('isAuthor', $project);
         if( $project->hasReachedUsersLimit() ) {
             return back()->with('danger', 'Limit Reached. You can only add upto ' . $project->users_limit);
         }
@@ -84,11 +88,16 @@ class ProjectUserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Project $project
+     * @param User $user
+     * @param ProjectUserDestroyRequest $request
+     * @return void
+     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function destroy($id)
+    public function destroy(Project $project, User $user, ProjectUserDestroyRequest $request)
     {
-        //
+        $this->authorize('isAuthor', $project);
+        $project->removeUser($user);
+        return redirect('/employer/project')->with('success', 'User has been removed.');
     }
 }
