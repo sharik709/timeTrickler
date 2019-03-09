@@ -12,13 +12,17 @@ class User extends Authenticatable
 {
     use Notifiable, HasRoles, Uuid;
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */ protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'uuid'
     ];
+
+
 
     /**
      * The attributes that should be hidden for arrays.
