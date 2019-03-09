@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::prefix('/employer')
+        ->middleware('auth')
         ->group(function(){
             Route::resource('project', 'ProjectController');
+            Route::resource('project.user', 'ProjectUserController');
         });
 
 Auth::routes();

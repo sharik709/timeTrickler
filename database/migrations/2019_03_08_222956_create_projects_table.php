@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Projects extends Migration
+class CreateProjectsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -20,6 +20,7 @@ class Projects extends Migration
             $table->string('title');
             $table->text('description');
             $table->unsignedInteger('user_id');
+            $table->integer('users_limit')->default(3);
             $table->enum('status', ['active', 'inactive']);
         });
     }
@@ -31,6 +32,6 @@ class Projects extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('projects');
     }
 }

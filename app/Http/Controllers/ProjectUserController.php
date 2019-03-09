@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Project\ProjectStoreRequest;
 use App\Project;
+use App\User;
 use Illuminate\Http\Request;
-use function redirect;
 
-class ProjectController extends Controller
+class ProjectUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.all', [
-            'projects' => Project::where('user_id', auth()->id())->paginate()
-        ]);
+        //
     }
 
     /**
@@ -34,32 +31,31 @@ class ProjectController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param ProjectStoreRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param Project $project
+     * @param Request $request
+     * @return void
      */
-    public function store(ProjectStoreRequest $request)
+    public function store(Project $project, Request $request)
     {
-        $project = Project::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'user_id' => auth()->id(),
-            'status' => 'active'
-        ]);
-        return redirect('/employer/project/'.$project->uuid)
-                    ->with('flash', 'Project has been created.');
+        if( $project->hasReachedUsersLimit() ) {
+            return back()->with('danger', 'Limit Reached. You can only add upto ' . $project->users_limit);
+        }
+        $user = User::findByUuidOrFail($request->user);
+
+        $project->addUser($user);
+
+        return redirect('/employer/project')->with('success', 'User has been successfully added.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param Project $project
+     * @param  int  $id
      * @return \Illuminate\Http\Response
-     * @throws \Illuminate\Auth\Access\AuthorizationException
      */
-    public function show(Project $project)
+    public function show($id)
     {
-        $this->authorize('show', $project);
-        return view('project.view', compact('project'));
+        //
     }
 
     /**

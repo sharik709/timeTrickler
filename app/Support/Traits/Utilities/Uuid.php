@@ -20,9 +20,9 @@ trait Uuid {
      * @param $uuid
      * @return mixed
      */
-    public function findByUuidOrFail($uuid)
+    public function scopeFindByUuidOrFail($builder, $uuid)
     {
-        return $this->where('uuid', $uuid)->firstOrFail();
+        return $builder->where('uuid', $uuid)->firstOrFail();
     }
 
 
