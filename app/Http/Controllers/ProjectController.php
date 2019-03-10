@@ -17,7 +17,7 @@ class ProjectController extends Controller
     public function index()
     {
         return view('project.all', [
-            'projects' => Project::where('user_id', auth()->id())->paginate()
+            'projects' => Project::where('user_id', auth()->id())->with('users')->paginate()
         ]);
     }
 

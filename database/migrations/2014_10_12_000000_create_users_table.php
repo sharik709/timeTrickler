@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->uuid('uuid');
             $table->string('name');
+            $table->string('avatar')->default('https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

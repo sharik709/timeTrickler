@@ -1,8 +1,4 @@
-@extends('layouts.app')
+@extends('employer.layouts.app')
 @section('content')
-    @foreach( $projects as $project )
-
-        <h3>{{ $project->title }}</h3>
-        <p>{{ $project->description }}</p>
-    @endforeach
+    <project :project-data="{{ json_encode($projects) }}"></project>
 @endsection

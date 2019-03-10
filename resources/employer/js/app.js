@@ -1,11 +1,10 @@
 import Vue from 'vue';
-
-
-
-
-
+import ZondiconIcon from 'vue-zondicons';
 
 require('./bootstrap.js');
+
+Vue.component('BaseIcon', ZondiconIcon);
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -17,7 +16,6 @@ require('./bootstrap.js');
 
 const files = require.context('./', true, /\.vue$/i);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
-
 
 
 new Vue({

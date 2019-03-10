@@ -48924,9 +48924,9 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/imac/projects/TimeTrickler/resources/js/app.js */"./resources/js/app.js");
-__webpack_require__(/*! /Users/imac/projects/TimeTrickler/resources/css/app.css */"./resources/css/app.css");
-module.exports = __webpack_require__(/*! /Users/imac/projects/TimeTrickler/resources/employer/css/app.css */"./resources/employer/css/app.css");
+__webpack_require__(/*! /Volumes/office/Projects/timetrickler/resources/js/app.js */"./resources/js/app.js");
+__webpack_require__(/*! /Volumes/office/Projects/timetrickler/resources/css/app.css */"./resources/css/app.css");
+module.exports = __webpack_require__(/*! /Volumes/office/Projects/timetrickler/resources/employer/css/app.css */"./resources/employer/css/app.css");
 
 
 /***/ })

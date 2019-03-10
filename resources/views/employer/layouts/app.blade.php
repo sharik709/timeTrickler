@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <Navbar></Navbar>
+        <Navbar path="{{ request()->path() }}"></Navbar>
         @yield('content')
     </div>
 </body>
