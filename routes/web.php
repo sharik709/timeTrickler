@@ -20,6 +20,7 @@ Route::prefix('/employer')
         ->group(function(){
             Route::resource('project', 'ProjectController');
             Route::resource('project.user', 'ProjectUserController');
+            Route::resource('project.task', 'ProjectTaskController');
             Route::resource('team', 'TeamController');
             Route::resource('team.user', 'TeamUserController');
         });
