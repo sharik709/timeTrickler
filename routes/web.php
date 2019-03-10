@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::prefix('/employer')
         ->middleware('auth')
         ->group(function(){
+            Route::get('/dashboard', 'DashboardController@index');
             Route::resource('project', 'ProjectController');
             Route::resource('project.user', 'ProjectUserController');
             Route::resource('project.task', 'ProjectTaskController');
