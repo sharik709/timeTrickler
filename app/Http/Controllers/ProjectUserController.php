@@ -15,9 +15,12 @@ class ProjectUserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Project $project)
     {
-        //
+        return view('employer/project/user/all', [
+            'users' => $project->users,
+            'project' => $project
+        ]);
     }
 
     /**

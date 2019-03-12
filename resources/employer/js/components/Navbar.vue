@@ -33,7 +33,7 @@
         props: ['path'],
         mounted(){
             this.links.forEach(link => {
-                if(link.href.includes(this.path)) {
+                if(this.path.includes(link.pattern)) {
                     link.active = true
                 }
             })
@@ -43,21 +43,25 @@
                 links: [
                     {
                         text: 'Dashboard',
+                        pattern: '/employer/dashboard',
                         href: '/employer/dashboard',
                         active: false
                     },
                     {
                         text: 'Projects',
+                        pattern: '/employer/project',
                         href: '/employer/project',
                         active: false
                     },
                     {
                         text: 'Teams',
+                        pattern: '/employer/team',
                         href: '/employer/team',
                         active: false
                     },
                     {
                         text: 'Settings',
+                        pattern: '/employer/setting',
                         href: '/employer/setting',
                         active: false
                     }

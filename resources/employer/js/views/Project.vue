@@ -20,7 +20,7 @@
                             <div class="w-6 h-6 -ml-2 rounded-full border-2 border-gray-light" v-for="(user, index) in project.users" :key="index">
                                 <img :src="user.avatar" :alt="user.name"/>
                             </div>
-                            <div class="w-6 h-6 -ml-2 rounded-full bg-white border-2 border-gray-light">
+                            <div class="cursor-pointer w-6 h-6 -ml-2 rounded-full bg-white border-2 border-gray-light">
                                 <BaseIcon icon="add-outline" />
                             </div>
                         </div>
@@ -29,46 +29,21 @@
                             <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Active</a>
                         </td>
                       <td class="py-4 px-6 border-b border-grey-light flex">
-                            <a class="w-6 h-6 rounded-full hover:bg-grey-light hover:text-white flex justify-center items-center">
+                            <a
+                                class="w-8 cursor-pointer h-8 rounded-full hover:bg-grey-light hover:text-white flex justify-center items-center"
+                                :href="'/employer/project/'+project.uuid"
+                                >
                                 <BaseIcon icon="view-show" class="w-4" />
                             </a>
 
-                            <a class="w-6 h-6 rounded-full hover:bg-grey-light hover:text-white flex justify-center items-center">
+                            <a class="w-8 cursor-pointer h-8 rounded-full hover:bg-grey-light hover:text-white flex justify-center items-center">
                                 <BaseIcon icon="compose" class="w-4" />
                             </a>
 
-                            <a class="w-6 h-6 rounded-full hover:bg-grey-light hover:text-white flex justify-center items-center">
+                            <a class="w-8 cursor-pointer h-8 rounded-full hover:bg-grey-light hover:text-white flex justify-center items-center">
                                 <BaseIcon icon="trash" class="w-4" />
                             </a>
                      </td>
-                    </tr>
-                    <tr class="hover:bg-grey-lighter">
-                      <td class="py-4 px-6 border-b border-grey-light">Paris</td>
-                      <td class="py-4 px-6 border-b border-grey-light">
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Edit</a>
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">View</a>
-                      </td>
-                    </tr>
-                    <tr class="hover:bg-grey-lighter">
-                      <td class="py-4 px-6 border-b border-grey-light">London</td>
-                      <td class="py-4 px-6 border-b border-grey-light">
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Edit</a>
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">View</a>
-                      </td>
-                    </tr>
-                    <tr class="hover:bg-grey-lighter">
-                      <td class="py-4 px-6 border-b border-grey-light">Oslo</td>
-                      <td class="py-4 px-6 border-b border-grey-light">
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Edit</a>
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">View</a>
-                      </td>
-                    </tr>
-                    <tr class="hover:bg-grey-lighter">
-                      <td class="py-4 px-6 border-b border-grey-light">Mexico City</td>
-                      <td class="py-4 px-6 border-b border-grey-light">
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-green hover:bg-green-dark">Edit</a>
-                        <a href="#" class="text-grey-lighter font-bold py-1 px-3 rounded text-xs bg-blue hover:bg-blue-dark">View</a>
-                      </td>
                     </tr>
                   </tbody>
                 </table>

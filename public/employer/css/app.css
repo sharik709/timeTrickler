@@ -550,6 +550,31 @@ table {
   }
 }
 
+.btn {
+  border-radius: .25rem;
+  border-width: 1px;
+  padding-left: .75rem;
+  padding-right: .75rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  color: #3490dc;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-outline-primary {
+  border-width: 1px;
+  border-color: #3490dc;
+  color: #3490dc;
+}
+
+.btn-outline-primary:hover {
+  background-color: #3490dc;
+  color: #fff;
+}
+
 /**
  * Here you would add any of your custom component classes; stuff that you'd
  * want loaded *before* the utilities so that the utilities could still
