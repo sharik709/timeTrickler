@@ -4,6 +4,11 @@
             <project-sub-menu :project="project" page="users" ></project-sub-menu>
         </div>
         <div class="container mx-auto">
+            <div class="flex justify-end">
+                <button class="btn btn-outline-primary">
+                    <i class="fa fa-add"></i> Add New Project User
+                </button>
+            </div>
             <div class="flex justify-between mt-4">
                 <button type="button" class="btn btn-outline-primary">
                     Go Back
@@ -17,9 +22,24 @@
             <hr />
             <div class="flex mt-10 -mx-2 flex-wrap justify-center" >
                 <UserProjectCard
-                    v-for="(loop, index) in [{}, {}, {}, {}, {}, {}]"
+                    v-for="(user, index) in users"
                     :key="index"
-                    :counterData="[
+                    :user="user"
+                ></UserProjectCard>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import UserProjectCard from '../components/UserProjectCard'
+    export default {
+        name: "ProjectUserAll",
+        props: ['project', 'users'],
+        components: {UserProjectCard},
+        created() {
+            this.users.forEach(user=> {
+                user.counterData = [
                         {
                             dataCounter : 10,
                             dataCounterBy: 'Hrs/Day',
@@ -41,19 +61,9 @@
                             icon: 'trophy'
                         }
 
-                    ]"
-                ></UserProjectCard>
-            </div>
-        </div>
-    </div>
-</template>
-
-<script>
-    import UserProjectCard from '../components/UserProjectCard'
-    export default {
-        name: "ProjectUserAll",
-        props: ['project', 'users'],
-        components: [UserProjectCard]
+                    ]
+            })
+        }
     }
 </script>
 
