@@ -1,0 +1,11 @@
+
+@import 'bootstrap/scss/bootstrap.scss';
+
+
+.usersList {
+    display: flex;
+    .userList-user {
+        width: 12px;
+        height: 12px;
+    }
+}

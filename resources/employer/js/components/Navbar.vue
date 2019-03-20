@@ -1,30 +1,21 @@
 <template>
-    <div class="bg-grey-light h-12 w-full">
-        <div class="container mx-auto">
-            <nav class="flex justify-between items-center">
-                <div class="flex items-center">
-                   <div class="flex items-center">
-                        <h3>TimeTrickler</h3>
-                   </div>
-                    <ul class="list-reset flex flex-wrap ml-8">
-                        <li v-for="(link, index) in links" :key="index">
-                            <a
-                                class="hover:bg-grey-lightest block px-4 py-4 text-grey-darker text-sm font-semibold bg-gray no-underline w-32 flex justify-center items-center" :href="link.href" :class="{'bg-grey-lightest' : link.active}" v-text="link.text"></a>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <div>
-                        <div class="w-12 bg-gray-dark rounded-full">
-                            
-                        </div>
-                        <h3>Sharik Shaikh</h3>
-                    </div>
-                </div>
-                   
-            </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+            <a 
+                v-for="(link, index) in links" 
+                :key="index"
+                class="nav-item nav-link active" 
+                :href="link.href"
+                v-text="link.text"
+                ></a>
+            </div>
         </div>
-    </div>
+    </nav>
 </template>
 
 <script>
@@ -70,3 +61,19 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-links {
+        display: flex;
+        list-style: none;
+        a {
+            display: block;
+            padding: 10px 5px;
+            background-color: lightgrey;
+        }
+    }
+</style>

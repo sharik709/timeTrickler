@@ -18,9 +18,7 @@ mix
         tailwindcss('./tailwind.js')
     ])
     .js('resources/employer/js/app.js', 'public/employer/js')
-    .postCss('resources/employer/css/app.css', 'public/employer/css', [
-        tailwindcss('./tailwind.js')
-    ])
+    .sass('resources/employer/sass/app.scss', 'public/employer/css')
     .version();
 
 mix.webpackConfig({

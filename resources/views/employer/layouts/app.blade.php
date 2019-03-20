@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <Navbar path="{{ request()->path() }}"></Navbar>
+        @include('employer.layouts.partials.Navbar')
         @yield('content')
     </div>
 </body>
